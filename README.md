@@ -32,7 +32,7 @@ A comprehensive platform that connects people for ride sharing and goods deliver
 This project follows a monorepo structure with separate frontend and backend applications:
 
 ```
-HopeAlong/
+HopeAlongL21/
 ├── hopealong-frontend/    # React frontend application
 └── server/               # Node.js backend application
 ```
@@ -69,8 +69,8 @@ HopeAlong/
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/JamiKishore21/HopeAlong.git
-   cd HopeAlong
+   git clone https://github.com/KhadirShaikL21/HopeAlongL21.git
+   cd HopeAlongL21
    ```
 
 2. **Setup Backend**
@@ -159,9 +159,35 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Team
 
-- **KhadirShaik** - Project Owner
+- **JamiKishore21** - Original Author & Maintainer
+- **KhadirShaikL21** - Active Contributor & Fork Maintainer
 - **Dastagiri** - Contributor
 - **Kishore** - Contributor
+
+## 🔄 Contributing to Main Repository
+
+This is a fork of the main HopeAlong repository. To contribute changes back:
+
+1. **Make your changes** in a feature branch
+2. **Push to your fork**: `git push origin feature-branch`
+3. **Create Pull Request** to `JamiKishore21/HopeAlong`
+4. **Sync with upstream** regularly: `git pull upstream main`
+
+### Sync with Main Repository
+
+```bash
+# Fetch latest changes from main repo
+git fetch upstream
+
+# Switch to main branch
+git checkout main
+
+# Merge upstream changes
+git merge upstream/main
+
+# Push updated main to your fork
+git push origin main
+```
 
 ## 📞 Support
 
