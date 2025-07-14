@@ -70,8 +70,8 @@ const Login = () => {
           </Button>
           <Button onClick={handleGoogleLogin} variant="google" type="button">
             <img
-              // src="https://www.svgrepo.com/show/475656/google-color.svg"
-              // alt="Google"
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              alt="Google"
               className="w-5 h-5 flex-shrink-0"
             />
             <span className="text-base font-medium">Continue with Google</span>
