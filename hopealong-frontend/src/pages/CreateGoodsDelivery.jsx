@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { API_BASE_URL } from "../config/api.js";
+
 const CreateGoodsDelivery = () => {
   const [form, setForm] = useState({
     from: "",
@@ -20,7 +22,7 @@ const CreateGoodsDelivery = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const res = await fetch("http://localhost:5000/api/goods", {
+    const res = await fetch(`${API_BASE_URL}/api/goods`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

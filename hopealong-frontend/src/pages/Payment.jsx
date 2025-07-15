@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../config/api.js";
 
 const Payment = () => {
   const { rideId } = useParams();
@@ -8,12 +9,12 @@ const Payment = () => {
   useEffect(() => {
     const startPayment = async () => {
       // 1. Get ride details (to get amount)
-      const res = await fetch(`http://localhost:5000/api/rides/${rideId}`);
+      const res = await fetch(`${API_BASE_URL}/api/rides/${rideId}`);
       const data = await res.json();
       const ride = data.ride || data;
 
       // 2. Create order on backend
-      const orderRes = await fetch("http://localhost:5000/api/payments/create-order", {
+      const orderRes = await fetch(`${API_BASE_URL}/api/payments/create-order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: ride.costPerSeat }), // or total cost if multiple seats

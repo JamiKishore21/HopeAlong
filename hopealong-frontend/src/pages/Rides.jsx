@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { API_BASE_URL } from "../config/api.js";
 import {
   FaSearch,
   FaUser,
@@ -67,8 +68,8 @@ const Rides = () => {
       .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
       .join("&");
     const url = query
-      ? `http://localhost:5000/api/rides/search?${query}`
-      : "http://localhost:5000/api/rides";
+      ? `${API_BASE_URL}/api/rides/search?${query}`
+      : `${API_BASE_URL}/api/rides`;
     const res = await fetch(url);
     const data = await res.json();
     setRides(data.rides || data);
@@ -92,7 +93,7 @@ const Rides = () => {
   const handleRequest = async (rideId) => {
     const seatsRequested = window.prompt("How many seats do you want to book?");
     if (!seatsRequested) return;
-    const res = await fetch("http://localhost:5000/api/riderequests/request", {
+    const res = await fetch(`${API_BASE_URL}/api/riderequests/request`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

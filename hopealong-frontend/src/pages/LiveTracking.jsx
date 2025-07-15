@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { GoogleMap, Marker, DirectionsRenderer, useJsApiLoader } from "@react-google-maps/api";
 import { io } from "socket.io-client";
 import { useParams } from "react-router-dom";
+import { API_BASE_URL } from "../config/api.js";
 
-const socket = io("http://localhost:5000", { withCredentials: true });
+const socket = io(API_BASE_URL, { withCredentials: true });
 
 const containerStyle = {
   width: "100%",
@@ -25,7 +26,7 @@ const LiveTracking = () => {
 
   // Fetch ride info
   useEffect(() => {
-    fetch(`http://localhost:5000/api/rides/${rideId}`)
+    fetch(`${API_BASE_URL}/api/rides/${rideId}`)
       .then((res) => res.json())
       .then((data) => {
         const ride = data.ride || data; // handle both {ride: {...}} and {...}
@@ -85,7 +86,7 @@ const LiveTracking = () => {
 
   // Fetch user info
   useEffect(() => {
-    fetch("http://localhost:5000/api/auth/me", { credentials: "include" })
+    fetch(`${API_BASE_URL}/api/auth/me`, { credentials: "include" })
       .then(res => res.json())
       .then(data => setUser(data.user));
   }, []);
@@ -104,7 +105,7 @@ const LiveTracking = () => {
         <button
           className="mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
           onClick={async () => {
-            await fetch(`http://localhost:5000/api/rides/${ride._id}/complete`, {
+            await fetch(`${API_BASE_URL}/api/rides/${ride._id}/complete`, {
               method: "POST",
               credentials: "include",
             });

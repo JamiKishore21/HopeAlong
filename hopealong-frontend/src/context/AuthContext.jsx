@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config/api.js';
 
 const AuthContext = createContext();
 
@@ -14,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axios.get('http://localhost:5000/api/auth/me', {
+      const res = await axios.get(`${API_BASE_URL}/api/auth/me`, {
         withCredentials: true,
         timeout: 5000
       });
@@ -36,7 +37,7 @@ export const AuthProvider = ({ children }) => {
     setError(null);
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/auth/login',
+        `${API_BASE_URL}/api/auth/login`,
         { email, password },
         { withCredentials: true, timeout: 5000 }
       );
@@ -55,7 +56,7 @@ export const AuthProvider = ({ children }) => {
     setError(null);
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/auth/register',
+        `${API_BASE_URL}/api/auth/register`,
         userData,
         { withCredentials: true, timeout: 5000 }
       );
@@ -72,7 +73,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       await axios.post(
-        'http://localhost:5000/api/auth/logout',
+        `${API_BASE_URL}/api/auth/logout`,
         {},
         { withCredentials: true, timeout: 5000 }
       );

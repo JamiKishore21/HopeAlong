@@ -11,7 +11,8 @@ import {
 import { IoMdTime } from "react-icons/io";
 import { MdEmojiPeople } from "react-icons/md";
 import { useAuth } from "../context/AuthContext.jsx";
-import heroBg from "../assets/Herobg.jpg";
+import heroBg from "../assets/herobg.jpg";
+
 
 const Home = () => {
   const { user, logout } = useAuth();
