@@ -157,12 +157,6 @@ VITE_API_URL=http://localhost:5000
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Team
-
-- **JamiKishore21** - Original Author & Maintainer
-- **KhadirShaikL21** - Active Contributor & Fork Maintainer
-- **Dastagiri** - Contributor
-- **Kishore** - Contributor
 
 ## 🔄 Contributing to Main Repository
 
